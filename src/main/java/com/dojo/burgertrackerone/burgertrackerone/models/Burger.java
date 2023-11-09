@@ -13,6 +13,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -31,11 +32,12 @@ public class Burger {
     private String burger;
 
     @NotNull
-    @Size(min = 5, max = 200)
+    @Size(min = 5, max = 200) //@Size L'annotation est utilisée pour valider la longueur d'une chaîne
     private String restaurant;
 
     //NEW
     @NotNull( message="Must not be blank." )
+    @Min(1) // @Minet @Maxles annotations sont utilisées pour valider la plage d’un nombre. 
     @Max(value=5, message="The rating must be between 0 and 5")
     private Integer rating;
 
